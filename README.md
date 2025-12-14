@@ -1,6 +1,6 @@
 # website-pop-up-component
 
-Free to use pop-up design for websites.
+Free to use pop-up design for websites: [demo](https://the-an0nym.github.io/website-pop-up-component/src/)
 
 Note that limited browsers support the `interpolate-size: allow-keywords;` property found in `:root` of `pop-up.css`, as of the time of writing this. Check out [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/interpolate-size) if this is still the case.
 <br>For browsers which do no support this property, the animation may look a bit janky at times.
