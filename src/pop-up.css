@@ -1,0 +1,87 @@
+:root {
+  --border-color: hsl(0 0 0);
+  --pass: hsl(120 200 78);
+  --warn: hsl(30 200 78);
+  --fail: hsl(5 200 78);
+
+  /* Necessary such that height(auto) -> height(0) renders smoothly */
+  interpolate-size: allow-keywords;
+}
+
+#pop-up-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  align-items: end;
+}
+
+@keyframes pop-up-animation {
+  0% {
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    margin-top: 0.5em;
+    margin-right: -1px; /* Taking border into account */
+    transform: translateX(100%);
+  }
+  5% {
+    margin-right: 0.5em;
+    transform: translateX(0%);
+  }
+  85% {
+    margin-right: 0.5em;
+    transform: translateX(0%);
+  }
+  90% {
+    margin-right: -1px;
+    transform: translateX(100%);
+    margin-top: 0.5em;
+    height: auto;
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+  }
+  95% {
+    transform: translateX(100%);
+    margin-top: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+  }
+  100% {
+    transform: translateX(100%);
+    margin-top: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+  }
+  /* Leaving time for JavaScript to remove the element*/
+}
+
+.pop-up {
+  /* All changing styles are in pop-up-animation */
+  width: 10em;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevents pop-ups from becoming squashed */
+  border-radius: 0.5em;
+  user-select: none;
+  animation: 8s pop-up-animation forwards;
+}
+
+/* pop-up colors */
+
+.pop-up.pass {
+  background-color: var(--pass);
+}
+
+.pop-up.warn {
+  background-color: var(--warn);
+}
+
+.pop-up.fail {
+  background-color: var(--fail);
+}

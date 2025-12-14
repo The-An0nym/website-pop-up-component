@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop-up demo</title>
+    <!-- POP UP STYLESHEET-->
+    <link rel="stylesheet" href="pop-up.css" />
+  </head>
+  <body>
+    <!-- DEMO (not needed for pop-up) -->
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      "
+    >
+      <input
+        id="inp"
+        placeholder="Type your message here"
+        value="Your message"
+        style="padding: 0.4em; margin-bottom: 0.4em"
+      />
+      <button
+        style="padding: 0.4em; margin-bottom: 0.2em"
+        onclick="createPopUp(document.getElementById('inp').value, 0)"
+      >
+        Create pass pop-up
+      </button>
+      <button
+        style="padding: 0.4em; margin-bottom: 0.2em"
+        onclick="createPopUp(document.getElementById('inp').value, 1)"
+      >
+        Create warn pop-up
+      </button>
+      <button
+        style="padding: 0.4em; margin-bottom: 0.2em"
+        onclick="createPopUp(document.getElementById('inp').value, 2)"
+      >
+        Create fail pop-up
+      </button>
+    </div>
+    <!-- END DEMO -->
+    <!-- POP-UP -->
+    <div id="pop-up-container"></div>
+    <script src="pop-up.js"></script>
+    <!-- END POP UP -->
+  </body>
+</html>
